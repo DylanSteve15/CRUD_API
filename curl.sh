@@ -10,5 +10,7 @@ curl http://127.0.0.1:5000/estudiantes
 #3 buscar estudiantes 
 curl http://127.0.0.1:5000/estudiantes/1
 
+#4. eliminar 
+curl -X DELETE http://127.0.0.1:5000/estudiantes/1
 
 
