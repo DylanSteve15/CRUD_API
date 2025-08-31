@@ -51,3 +51,15 @@ def update_estudiante(estudiante_id):
     estudiante['docente_clase'] = request.json.get('docente_clase', estudiante['docente_clase'])
     
     return jsonify(estudiante), 200
+
+# Eliminar un estudiante
+@app.route('/estudiantes/<int:estudiante_id>', methods=['DELETE'])
+def delete_estudiante(estudiante_id):
+    estudiante = next((e for e in estudiantes if e['id'] == estudiante_id), None)
+    if estudiante is None:
+        return jsonify({'error': 'Estudiante no encontrado'}), 404
+    estudiantes.remove(estudiante)
+    return jsonify({'result': 'Estudiante eliminado'}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
