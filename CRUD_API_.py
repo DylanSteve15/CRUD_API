@@ -1,4 +1,5 @@
 #Primera version V.1.0 agregamos crear y actualizar .
+#Segunda version v.1.1 se agrega Eliminar 
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
