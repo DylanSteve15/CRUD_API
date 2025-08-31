@@ -1,3 +1,4 @@
+#Primera version V.1.0 agregamos crear y actualizar .
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
