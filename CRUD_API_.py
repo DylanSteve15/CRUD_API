@@ -1,11 +1,19 @@
 #Primera version V.1.0 agregamos crear y actualizar .
 #Segunda version v.1.1 se agrega Eliminar 
+#Tercera Version v.1.2 se crea el curl.sh
+# cuarta version v.1.3 se crea el puerto_host 5000
+
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
 # Base de datos temporal en memoria (lista de diccionarios)
 estudiantes = []
+
+# Ruta raíz de bienvenida
+@app.route('/')
+def home():
+    return "API de CRUD de Estudiantes está funcional."
 
 # Obtener todos los estudiantes
 @app.route('/estudiantes', methods=['GET'])
@@ -63,4 +71,5 @@ def delete_estudiante(estudiante_id):
     return jsonify({'result': 'Estudiante eliminado'}), 200
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    # Importante para Codespaces: host=0.0.0.0 y port=5000
+    app.run(debug=True, host='0.0.0.0', port=5000)
